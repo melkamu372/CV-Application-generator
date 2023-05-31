@@ -1,6 +1,124 @@
-.header {
-  text-align: center;
-  color: #8b7b7b;
-  font-size: 100%;
-  font-family: 'Times New Roman', Times, serif;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background-color: hsl(210, 2%, 53%);
+  color: #fff;
+}
+
+.navbar .hamburger {
+  display: none;
+}
+.navbar .nav-menu {
+  display: inline-flex;
+  list-style: none;
+}
+.navbar .nav-menu li {
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar .hamburger {
+    display: block;
+  }
+
+  .navbar .nav-menu {
+    display: none;
+  }
+
+  .navbar .hamburger:hover {
+    cursor: pointer;
+  }
+
+  .navbar .hamburger span {
+    width: 10px;
+    height: 2px;
+    background-color: #fff;
+    margin: 5px;
+    border-radius: 20px;
+  }
+
+  .navbar .hamburger span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  .navbar .hamburger span:nth-child(2) {
+    transform: rotate(-45deg);
+  }
+
+  .navbar .hamburger:hover span {
+    transform: rotate(0);
+  }
+
+  .navbar:hover .nav-menu {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    z-index: 100;
+  }
+
+  .navbar .nav-menu li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+  }
+
+  .navbar .nav-menu li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+
+  .navbar .nav-menu li a:hover {
+    background-color: #ccc;
+  }
+
+  .navbar .nav-menu li a:active {
+    background-color: #bbb;
+  }
+}
+main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-image: url("menu.png");
+}
+h1 {
+  font-size: 2em;
+  margin-top: 0;
+  font-weight: bold;
+}
+
+p {
+  font-size: 25px;
+  line-height: 1.5;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  display: inline-block;
+ padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.2em;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #ccc;
 }
