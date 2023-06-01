@@ -26,9 +26,9 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# Hello Microverse project <a name="about-project"></a>
+# My Portfolio mobile first project <a name="about-project"></a>
 
-**Hello Microverse** is a HTML project that display a My Portfolio mobile first project.
+**My Portfolio mobile first project ** is a HTML project that display a My Portfolio mobile first project.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -112,6 +112,11 @@ npx stylelint "**/*.{css,scss}" --fix
 
 ```
 npm install
+```
+## WebLint
+```
+npm init -y
+npm install --save-dev hint@7.x
 ```
 ### Usage
 
