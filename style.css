@@ -92,7 +92,6 @@
   background-size: cover;
   display: flex;
   flex-wrap: wrap;
-  /* align-content: center;  */
   margin: 0 auto;
   gap: 1.2rem 0;
 }

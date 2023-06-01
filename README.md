@@ -1,14 +1,7 @@
-
-
-
 <a name="readme-top"></a>
 
 <div align="center">
-
-  <br/>
-
-  <h3><b> My-Portfolio mobile first website </b></h3>
-
+# <h1> My Portfolio mobile first project </h1>
 </div>
 
 # 📗 Table of Contents
@@ -33,9 +26,9 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# My-Portfolio <a name="about-project"></a>
+# Hello Microverse project <a name="about-project"></a>
 
-**My-Portfolio** is a HTML & ccs mobile first  project that describes "My-Portfolio" information.
+**Hello Microverse** is a HTML project that display a My Portfolio mobile first project.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -84,15 +77,15 @@ To get a local copy up and running, follow these steps.
 In order to run this project you need:
 
 - You need to have NodeJS installed
-- A Web Browser (Google Chrome, Firefox, etc)
-- A Code Editor (Notepad++, VSCode, etc)
+- A Web Browser Google Chrome, Firefox, etc
+- A Code Editor VSCode, Atom etc 
 
 ### Setup
 
 Clone this repository to your desired folder:
 
 ```
-git clone yourlink repo https://github.com/fatima-najafi/Hello-World
+https://github.com/melkamu372/Hello-Microverse.git
 
 cd your folder name
 ```
@@ -104,12 +97,25 @@ Install this project with:
 ```
 npm install
 ```
+### Install
 
+Install Stylelint
+```
+npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
+
+````
+npx stylelint "**/*.{css,scss}"
+
+```
+npx stylelint "**/*.{css,scss}" --fix
+```
+npm install
+```
 ### Usage
 
 To run the project, execute the following command:
 
-Double-click on the index file (index.html)
+open the project folder and Double-click on the index file (index.html)
 
 ### Run tests
 
@@ -127,11 +133,10 @@ Deploy this project on any websever
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Fatima **
+👤 ** @melkamu Tessema **
 
-- GitHub: [@githubhandle](https://github.com/fatima-najafi)
-- Twitter: [@twitterhandle](https://twitter.com)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/fatima-najafi-75424a23a/)
+- GitHub: [@githubhandle] https://github.com/melkamu372
+- LinkedIn: [LinkedIn] https://www.linkedin.com/in/melkamu372/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
