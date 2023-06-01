@@ -10,10 +10,12 @@
 .navbar .hamburger {
   display: none;
 }
+
 .navbar .nav-menu {
   display: inline-flex;
   list-style: none;
 }
+
 .navbar .nav-menu li {
   padding: 10px;
 }
@@ -84,9 +86,9 @@
   }
 }
 
-.section2-content{
+.section2-content {
   height: 60.4rem;
-   width: 32.7rem; 
+  width: 32.7rem;
   background-image: url("./assets/header-mobile-view.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -95,13 +97,14 @@
   margin: 0 auto;
   gap: 1.2rem 0;
 }
+
 .contact-label {
-font-size: large;
+  font-size: large;
   text-decoration: none;
   color: #1b29a7;
-  
 }
-.my-address-links{
+
+.my-address-links {
   padding: 10px;
 }
 
@@ -122,7 +125,7 @@ ul {
   padding: 0;
 }
 
-li {
+.my-address-list {
   margin-bottom: 10px;
   display: inline-block;
   padding: 10px;
