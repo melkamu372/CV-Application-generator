@@ -1,7 +1,7 @@
 body {
   background-image: url("./assets/header-mobile-view.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% auto;
 }
 
 .navbar {
@@ -29,6 +29,7 @@ body {
 @media (max-width: 768px) {
   body {
     background-image: url("./assets/header-mobile-view.png");
+    width: 100%;
   }
 
   .navbar .hamburger {
@@ -97,11 +98,9 @@ body {
 }
 
 .section2-content {
-  position: absolute;
-  width: 1440px;
-  height: 916px;
-  top: 100px;
-  margin-left: 10%;
+  margin: 7rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-label {
@@ -174,15 +173,14 @@ a:hover {
   font-size: 48px;
   line-height: 60px;
   display: flex;
-  align-items: center;
   letter-spacing: 0.37px;
   color: #091e42;
   margin: 0;
 }
 
 .my-description {
-  width: 920px;
-  height: 98px;
+  display: flex;
+  align-items: center;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
