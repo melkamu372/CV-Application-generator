@@ -105,9 +105,11 @@ body {
 }
 
 .contact-label {
-  font-size: large;
-  text-decoration: none;
-  color: #1b29a7;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #7f8cff;
 }
 
 .my-address-links {
