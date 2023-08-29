@@ -1,6 +1,13 @@
  function Greetings(){
+  const animals=['Lion','Cow','Snake', 'Lizard'];
     return(
         <>
+         <h1>Animals: </h1>
+      <ul>
+        {animals.map((animal)=>{
+          return (<li>{animal}</li>)
+        })}
+      </ul>
         <h1>Test title</h1>
         <ol className="test-list">
           <li>List item 1</li>
