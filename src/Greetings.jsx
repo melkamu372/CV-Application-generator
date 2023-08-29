@@ -19,8 +19,8 @@
  }
  
  function Greetings(){
-  // const ani=['Lion','Cow','Snake', 'Lizard'];
-  const ani=[];
+  const ani=['Lion','Cow','Snake', 'Lizard'];
+
     return(
         <>
          <h1>Animals: </h1>
