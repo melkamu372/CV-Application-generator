@@ -1,22 +1,30 @@
  
  function List(props){
+ if(!props.animals){
+     return <div> Loading ... </div>;
+ }
+
+ if(props.animals.length===0){
+   return <div> There is no elements to render in the list ! </div>;
+ }
+ 
  return(
  <ul>
   {
     props.animals.map((animal)=>{
-      return (<li>{animal}</li>)
+      return ( animal.startsWith("L") ?<li key={animal}>{animal}</li>:null)
     })
   }
   </ul>);
  }
  
  function Greetings(){
-  const animals=['Lion','Cow','Snake', 'Lizard'];
-
+  // const ani=['Lion','Cow','Snake', 'Lizard'];
+  const ani=[];
     return(
         <>
          <h1>Animals: </h1>
-      <List animals={animals} />
+      <List animals={ani} />
         <h1>Test title</h1>
         <ol className="test-list">
           <li>List item 1</li>
