@@ -1,13 +1,22 @@
+ 
+ function List(props){
+ return(
+ <ul>
+  {
+    props.animals.map((animal)=>{
+      return (<li>{animal}</li>)
+    })
+  }
+  </ul>);
+ }
+ 
  function Greetings(){
   const animals=['Lion','Cow','Snake', 'Lizard'];
+
     return(
         <>
          <h1>Animals: </h1>
-      <ul>
-        {animals.map((animal)=>{
-          return (<li>{animal}</li>)
-        })}
-      </ul>
+      <List animals={animals} />
         <h1>Test title</h1>
         <ol className="test-list">
           <li>List item 1</li>
