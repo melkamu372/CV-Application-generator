@@ -1,95 +1,134 @@
-function PeronalDetails(){
-    return (
-    <>
+import { useState } from "react";
+import uniqid from "uniqid";
+import Button from "./Button";
 
+let generalData = [];
+
+function PersonalDetails() {
+  const [person, setPersonalInfo] = useState({
+    fullname: "",
+    tel: "",
+    email: "",
+    address: ""
+  });
+
+  const handleButtonClick = (event) => {
+    const { value, dataset } = event.target;
+    const { key } = dataset;
+    setPersonalInfo((prevPerson) => ({
+      ...prevPerson,
+      [key]: value,
+    }));
+  };
+
+  const clear_form = (event) => {
+    event.preventDefault();
+    setPersonalInfo({
+      fullname: "",
+      tel: "",
+      email: "",
+      address: ""
+    });
+  };
+
+  const submit_form = (event) => {
+    event.preventDefault();
+    const updatedData = [...generalData, person];
+    generalData = updatedData;
+    console.log(updatedData);
+  };
+
+  const input_data = [
+    {
+      id: uniqid(),
+      value: person.fullname,
+      type: "text",
+      placeholder: "Enter your name",
+      label: "Full Name",
+      onChange: handleButtonClick,
+      data_key: "fullname",
+    },
+    {
+      id: uniqid(),
+      value: person.tel,
+      type: "tel",
+      placeholder: "Enter your phone",
+      label: "Phone Number",
+      onChange: handleButtonClick,
+      data_key: "tel",
+    },
+    {
+      id: uniqid(),
+      value: person.email,
+      type: "email",
+      placeholder: "Enter your email",
+      label: "Email Address",
+      onChange: handleButtonClick,
+      data_key: "email",
+    },
+    {
+      id: uniqid(),
+      value: person.address,
+      type: "textarea",
+      placeholder: "Your Address",
+      label: "City and Province",
+      onChange: handleButtonClick,
+      data_key: "address",
+    },
+  ];
+
+  return (
+    <>
       <div className="container">
         <div className="row">
           <div className="col-md-6">
             <div className="card">
-              <input
-                className="form-control"
-                type="text"
-                defaultValue="Readonly input here..."
-                aria-label="readonly input example"
-                readOnly=""
-              />
-              <div className="mb-3">
-                <label
-                  htmlFor="exampleFormControlInput1"
-                  className="form-label"
-                >
-                  Email address
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="name@example.com"
-                />
-              </div>
-              <div className="mb-3">
-                <label
-                  htmlFor="exampleFormControlTextarea1"
-                  className="form-label"
-                >
-                  Example textarea
-                </label>
-                <textarea
-                  className="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows={3}
-                  defaultValue={""}
-                />
+              <div className="card-header">General Information</div>
+              <div className="card-body">
+                <form name="general-form" onSubmit={submit_form}>
+                  {input_data.map((data) => {
+                    return (
+                      <div className="mb-3" key={data.id}>
+                        <label className="general-form-label">{data.label}</label>
+                        <input
+                          className="form-control"
+                          value={data.value}
+                          onChange={data.onChange}
+                          type={data.type}
+                          placeholder={data.placeholder}
+                          data-key={data.data_key}
+                        />
+                      </div>
+                    );
+                  })}
+
+                  <Button
+                    type="submit"
+                    clickMe={submit_form}
+                    btnClass="btn btn-success btn-lg p-2 m-1"
+                    text=" Save "
+                  />
+
+                  <Button
+                    clickMe={clear_form}
+                    btnClass="btn btn-danger btn-lg p-2 m-1"
+                    text=" Clear "
+                  />
+                </form>
               </div>
             </div>
-            <div>
-              <br></br>
-            </div>
-            <div className="accordion" id="accordionExample">
-              <div className="accordion-item">
-                <h2 className="accordion-header" id="headingOne">
-                  <button
-                    className="accordion-button"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne"
-                    aria-expanded="true"
-                    aria-controls="collapseOne"
-                  >
-                    Eduvation
-                  </button>
-                </h2>
-                <div
-                  id="collapseOne"
-                  className="accordion-collapse collapse show"
-                  aria-labelledby="headingOne"
-                  data-bs-parent="#accordionExample"
-                >
-                  <div className="accordion-body"></div>
-                </div>
-              </div>
-            </div>
-          </div>{" "}
-          {/* end of column  */}
+          </div>
+
           <div className="col-md-6">
             <div className="card">
               <div className="card-header">Featured</div>
-              <div className="card-body">
-                <h5 className="card-title">Special title treatment</h5>
-                <p className="card-text">
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
+              <div className="card-body"></div>
             </div>
           </div>
         </div>
       </div>
-    
     </>
-    )
+  );
 }
-export default PeronalDetails;
+
+export default PersonalDetails;
