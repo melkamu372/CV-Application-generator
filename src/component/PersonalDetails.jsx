@@ -1,23 +1,20 @@
 import { useState } from "react";
-import uniqid from "uniqid";
 import Button from "./Button";
-
-let generalData = [];
 
 function PersonalDetails() {
   const [person, setPersonalInfo] = useState({
     fullname: "",
+    title:'',
     tel: "",
     email: "",
     address: ""
   });
 
-  const handleButtonClick = (event) => {
-    const { value, dataset } = event.target;
-    const { key } = dataset;
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
     setPersonalInfo((prevPerson) => ({
       ...prevPerson,
-      [key]: value,
+      [name]: value,
     }));
   };
 
@@ -25,7 +22,9 @@ function PersonalDetails() {
     event.preventDefault();
     setPersonalInfo({
       fullname: "",
+      title:'',
       tel: "",
+
       email: "",
       address: ""
     });
@@ -33,49 +32,8 @@ function PersonalDetails() {
 
   const submit_form = (event) => {
     event.preventDefault();
-    const updatedData = [...generalData, person];
-    generalData = updatedData;
-    console.log(updatedData);
+    console.log(person);
   };
-
-  const input_data = [
-    {
-      id: uniqid(),
-      value: person.fullname,
-      type: "text",
-      placeholder: "Enter your name",
-      label: "Full Name",
-      onChange: handleButtonClick,
-      data_key: "fullname",
-    },
-    {
-      id: uniqid(),
-      value: person.tel,
-      type: "tel",
-      placeholder: "Enter your phone",
-      label: "Phone Number",
-      onChange: handleButtonClick,
-      data_key: "tel",
-    },
-    {
-      id: uniqid(),
-      value: person.email,
-      type: "email",
-      placeholder: "Enter your email",
-      label: "Email Address",
-      onChange: handleButtonClick,
-      data_key: "email",
-    },
-    {
-      id: uniqid(),
-      value: person.address,
-      type: "textarea",
-      placeholder: "Your Address",
-      label: "City and Province",
-      onChange: handleButtonClick,
-      data_key: "address",
-    },
-  ];
 
   return (
     <>
@@ -86,21 +44,60 @@ function PersonalDetails() {
               <div className="card-header">General Information</div>
               <div className="card-body">
                 <form name="general-form" onSubmit={submit_form}>
-                  {input_data.map((data) => {
-                    return (
-                      <div className="mb-3" key={data.id}>
-                        <label className="general-form-label">{data.label}</label>
-                        <input
-                          className="form-control"
-                          value={data.value}
-                          onChange={data.onChange}
-                          type={data.type}
-                          placeholder={data.placeholder}
-                          data-key={data.data_key}
-                        />
-                      </div>
-                    );
-                  })}
+                  <div className="mb-3">
+                    <label className="general-form-label">Full Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="fullname"
+                      value={person.fullname}
+                      onChange={handleInputChange}
+                      placeholder="Enter your name"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="general-form-label">Job Title</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="title"
+                      value={person.title}
+                      onChange={handleInputChange}
+                      placeholder="Enter Your Job"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="general-form-label">Phone Number</label>
+                    <input
+                      type="tel"
+                      className="form-control"
+                      name="tel"
+                      value={person.tel}
+                      onChange={handleInputChange}
+                      placeholder="Enter your phone"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="general-form-label">Email Address</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      name="email"
+                      value={person.email}
+                      onChange={handleInputChange}
+                      placeholder="Enter your email"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="general-form-label">City and Province</label>
+                    <textarea
+                      className="form-control"
+                      name="address"
+                      value={person.address}
+                      onChange={handleInputChange}
+                      placeholder="Your Address"
+                    />
+                  </div>
 
                   <Button
                     type="submit"
@@ -121,8 +118,15 @@ function PersonalDetails() {
 
           <div className="col-md-6">
             <div className="card">
-              <div className="card-header">Featured</div>
-              <div className="card-body"></div>
+              <div className="card-body">
+              <h1>{person.fullname}</h1>
+              <span className="p-2 text-dark bg-success rounded-3">{person.title}</span>
+                    
+                <p className="bi bi-telephone"> {person.tel}</p>
+                <i class="phone"></i>
+                <p>Email Address: {person.email}</p>
+                <p>City and Province: {person.address}</p>
+              </div>
             </div>
           </div>
         </div>
