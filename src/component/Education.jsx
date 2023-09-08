@@ -1,103 +1,151 @@
-import React from 'react';
+
+import {React, useState, useEffect} from "react";
+import Button from "./Button";
 function Education() {
-    return (
-      <>
-        <div className="container">
-        <div className="accordion" id="accordionExample">
-  <div className="accordion-item">
-    <h2 className="accordion-header">
-      <button
-        className="accordion-button"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapseOne"
-        aria-expanded="true"
-        aria-controls="collapseOne"
-      >
-        Accordion Item #1
-      </button>
-    </h2>
-    <div
-      id="collapseOne"
-      className="accordion-collapse collapse show"
-      data-bs-parent="#accordionExample"
-    >
-      <div className="accordion-body">
-        <strong>This is the first item's accordion body.</strong> It is shown by
-        default, until the collapse plugin adds the appropriate classes that we
-        use to style each element. These classes control the overall appearance,
-        as well as the showing and hiding via CSS transitions. You can modify
-        any of this with custom CSS or overriding our default variables. It's
-        also worth noting that just about any HTML can go within the{" "}
-        <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
-  </div>
-  <div className="accordion-item">
-    <h2 className="accordion-header">
-      <button
-        className="accordion-button collapsed"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapseTwo"
-        aria-expanded="false"
-        aria-controls="collapseTwo"
-      >
-        Accordion Item #2
-      </button>
-    </h2>
-    <div
-      id="collapseTwo"
-      className="accordion-collapse collapse"
-      data-bs-parent="#accordionExample"
-    >
-      <div className="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden
-        by default, until the collapse plugin adds the appropriate classes that
-        we use to style each element. These classes control the overall
-        appearance, as well as the showing and hiding via CSS transitions. You
-        can modify any of this with custom CSS or overriding our default
-        variables. It's also worth noting that just about any HTML can go within
-        the <code>.accordion-body</code>, though the transition does limit
-        overflow.
-      </div>
-    </div>
-  </div>
-  <div className="accordion-item">
-    <h2 className="accordion-header">
-      <button
-        className="accordion-button collapsed"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapseThree"
-        aria-expanded="false"
-        aria-controls="collapseThree"
-      >
-        Accordion Item #3
-      </button>
-    </h2>
-    <div
-      id="collapseThree"
-      className="accordion-collapse collapse"
-      data-bs-parent="#accordionExample"
-    >
-      <div className="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden
-        by default, until the collapse plugin adds the appropriate classes that
-        we use to style each element. These classes control the overall
-        appearance, as well as the showing and hiding via CSS transitions. You
-        can modify any of this with custom CSS or overriding our default
-        variables. It's also worth noting that just about any HTML can go within
-        the <code>.accordion-body</code>, though the transition does limit
-        overflow.
-      </div>
-    </div>
-  </div>
-</div>
+  const [formData, setFormData] = useState({
+    school: "Bahir Dar INstitute of Technology",
+    level: "BSC",
+    department: "Software Engineering",
+    start: "10/20/2014",
+    end: "07/13/2019",
+    location: "Bahir Dar,Ethiopia"
+  });
+
+  const [education, setEducationalInfo] = useState([])
+  // useEffect(() => {
+  //   updatEducation(education);
+  // }, [education, updatEducation]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value
+    }));
+  };
+  const clear_form = (event) => {
+    event.preventDefault();
+    setFormData({
+    school: "",
+    level: "",
+    department: "",
+    start: "",
+    end: "",
+    location:""
+    });
+  };
+  const AddNewEducation=()=>{
+    setEducationalInfo((prevData) => [...prevData, formData]);
+    setFormData({
+      school: "",
+      level: "",
+      department: "",
+      start: "",
+      end: "",
+      location:""
+      });
+    };
+    
+  
+  const Update=()=>{};
+  const deleteEducation = (index) => {
+    setEducationalInfo((prevData) => {
+      const updatedData = [...prevData];
+      updatedData.splice(index, 1);
+      return updatedData;
+    });
+  };
+
+  return (
+    <>
+      <div className="container">
+        <div className="mb-3">
+          <label className="form-label">School Name</label> 
+          <input type="text" name="school" className="form-control" onChange={handleInputChange} value={formData.school} />
         </div>
-      </>
-    );
-  }
-  
-  export default Education;
-  
+
+        <div className="mb-3">
+          <label className="form-label">Education Level</label>
+          <input type="text" name="level" className="form-control" onChange={handleInputChange} value={formData.level} />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Department</label>
+          <input type="text" name="department" className="form-control" onChange={handleInputChange} value={formData.department} />
+        </div>
+
+        <div className="row">
+          <div className="col">
+            <label className="form-label" >Start Date</label>
+            <input type="date"  className="form-control" name='start' onChange={handleInputChange} value={formData.start}
+            />
+          </div>
+          <div className="col">
+            <label className="form-label">End Date</label>
+            <input
+              type="date"
+              className="form-control"
+              name="end"  onChange={handleInputChange} value={formData.end}/>
+          </div>
+        </div>
+
+        <div className="mb-3">
+          <label className="form-label">Location</label>
+          <input type="text" name="location" className="form-control" onChange={handleInputChange} value={formData.location} />
+        </div>
+
+        <div className="row">
+        <div className="col-md-4">
+            
+            </div>
+
+          <div className="col">
+            <Button
+              clickMe={AddNewEducation}
+              btnClass="btn btn-primary btn-sm  m-1"
+              text="Add"
+            />
+          </div>
+          <div className="col">
+            <Button
+              clickMe={clear_form}
+              btnClass="btn btn-warning btn-sm  m-1"
+              text="Clear"
+            />
+          </div>
+        </div>
+        {education.length > 0 ? (
+        <table className=" table table-striped-columns table-primary">
+          <thead>
+            <tr >
+              <th>School</th>
+              <th>Level</th>
+              <th>Departement</th>
+              <th> Action</th>
+            </tr>
+          </thead>
+          <tbody className="table-striped ">
+            {education.map((edu, index) => (
+              <tr key={index}>
+                <td>{edu.school}</td>
+                <td>{edu.level}</td>
+                <td>{edu.department}</td>
+                <td> 
+                  <Button
+            clickMe={() => deleteEducation(index)}
+            btnClass="btn btn-danger btn-sm m-1"
+            text="Delete"
+          /> </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>No users registered yet.</p>
+      )}
+        
+      </div>
+    </>
+  );
+}
+
+export default Education;
