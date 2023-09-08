@@ -59,8 +59,6 @@ function Education() {
       });
     };
     
-  
-  const Update=()=>{};
   const deleteEducation = (index) => {
     setEducationalInfo((prevData) => {
       const updatedData = [...prevData];
@@ -149,7 +147,22 @@ function Education() {
       ) : (
         <p>No users registered yet.</p>
       )}
+
+      <div> 
+      {education.length > 0 ? (
+           <div>
+            {education.map((edu, index) => (
+          <p> {edu.school} </p> 
+            ))
+            }
+            </div>
+
+      ):(<p></p>)}
+
       </div>
+      </div>
+
+      
     </>
   );
 }
