@@ -8,8 +8,9 @@ return (<>
               <p className="p-2" >
               <i className="p-2 bi bi-telephone"> {person.tel}  </i>
               <i className="p-2 bi bi-envelope">  {person.email}  </i>
+              <i className="p-2 bi bi-geo-alt">  {person.address}  </i>
                </p>
-               <p className="p-2 bi bi-geo-alt">   {person.address}  </p>
+               <p className="p-2">   {person.about}  </p>
               </div>
             </div>
       </div>

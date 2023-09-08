@@ -1,44 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import Button from "./Button";
-function PersonalDetails() {
+function PersonalDetails({updatePerson}) {
   const [person, setPersonalInfo] = useState({
     fullname: "Melkamu Tessema",
-    title:'Software Engineering',
+    title: "Software Engineering",
     tel: "+251945272182",
     email: "melkamu372@gmial.com",
-    address: "Addis Ababa, Ethiopia"
+    address: "Addis Ababa, Ethiopia",
+    about: "Hello I'm a self-motivated software developer who has a track record of working well in a team. I am good developer for the development of new software products and enhancements to existing products. I have exceptional leadership and communication abilities and work with large-scale frameworks and applications."
   });
+
+  useEffect(() => {
+    updatePerson(person);
+  }, [person, updatePerson]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setPersonalInfo((prevPerson) => ({
       ...prevPerson,
-      [name]: value,
+      [name]: value
     }));
   };
-
   const clear_form = (event) => {
     event.preventDefault();
     setPersonalInfo({
       fullname: "",
-      title:'',
+      title: "",
       tel: "",
-
       email: "",
-      address: ""
+      address: "",
+      about:""
     });
-  };
-
-  const submit_form = (event) => {
-    event.preventDefault();
-    setPersonalInfo({
-    fullname: "Melkamu Tessema",
-    title:'Software Engineering',
-    tel: "+251945272182",
-    email: "melkamu372@gmial.com",
-    address: "Addis Ababa, Ethiopia"
-    });
-   
   };
 
   return (
@@ -49,7 +41,7 @@ function PersonalDetails() {
             <div className="card">
               <div className="card-header">General Information</div>
               <div className="card-body">
-                <form name="general-form" onSubmit={submit_form}>
+                <form name="general-form">
                   <div className="mb-3">
                     <label className="general-form-label">Full Name</label>
                     <input
@@ -95,8 +87,10 @@ function PersonalDetails() {
                     />
                   </div>
                   <div className="mb-3">
-                    <label className="general-form-label">City and Province</label>
-                    <textarea
+                    <label className="general-form-label">
+                      City and Province
+                    </label>
+                    <input type="text"
                       className="form-control"
                       name="address"
                       value={person.address}
@@ -105,16 +99,23 @@ function PersonalDetails() {
                     />
                   </div>
 
-                  <Button
-                    type="submit"
-                    clickMe={submit_form}
-                    btnClass="btn btn-success btn-lg p-2 m-1"
-                    text=" Default "
-                  />
+                  <div className="mb-3">
+                    <label className="general-form-label">
+                      About
+                    </label>
+                    <textarea
+                      className="form-control"
+                      name="about"
+                      value={person.about}
+                      onChange={handleInputChange}
+                      placeholder="Write about Your Self"
+                    />
+                  </div>
+
                   <Button
                     clickMe={clear_form}
                     btnClass="btn btn-danger btn-lg p-2 m-1"
-                    text=" Clear "
+                    text="Clear"
                   />
                 </form>
               </div>
