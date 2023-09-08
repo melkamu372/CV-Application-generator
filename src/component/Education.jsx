@@ -1,4 +1,3 @@
-
 import {React, useState, useEffect} from "react";
 import Button from "./Button";
 function Education() {
@@ -35,6 +34,20 @@ function Education() {
     });
   };
   const AddNewEducation=()=>{
+
+  
+      if (formData.school.trim() === "") {
+         alert("Please enter a school name.");
+           return;
+      }
+      if (formData.level.trim() === "") {
+        alert("Please enter Education Level");
+        return;
+      }
+      if (formData.department.trim() === "") {
+        alert("Please enter department name.");
+        return;
+      }
     setEducationalInfo((prevData) => [...prevData, formData]);
     setFormData({
       school: "",
@@ -92,20 +105,14 @@ function Education() {
           <label className="form-label">Location</label>
           <input type="text" name="location" className="form-control" onChange={handleInputChange} value={formData.location} />
         </div>
-
         <div className="row">
-        <div className="col-md-4">
-            
-            </div>
-
-          <div className="col">
+          <div className="col-md-4 offset-md-8 mr-auto">
             <Button
               clickMe={AddNewEducation}
               btnClass="btn btn-primary btn-sm  m-1"
               text="Add"
             />
-          </div>
-          <div className="col">
+         
             <Button
               clickMe={clear_form}
               btnClass="btn btn-warning btn-sm  m-1"
@@ -114,16 +121,16 @@ function Education() {
           </div>
         </div>
         {education.length > 0 ? (
-        <table className=" table table-striped-columns table-primary">
+        <table className="table table-primary table-bordered">
           <thead>
-            <tr >
+            <tr className="table-dark">
               <th>School</th>
               <th>Level</th>
               <th>Departement</th>
               <th> Action</th>
             </tr>
           </thead>
-          <tbody className="table-striped ">
+          <tbody className="table-striped table-info ">
             {education.map((edu, index) => (
               <tr key={index}>
                 <td>{edu.school}</td>
@@ -142,7 +149,6 @@ function Education() {
       ) : (
         <p>No users registered yet.</p>
       )}
-        
       </div>
     </>
   );
