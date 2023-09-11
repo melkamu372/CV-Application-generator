@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import PersonalDetails from '../component/PersonalDetails';
-import Education from '../component/Education';
+import PersonalDetails from './GeneralInfo/PersonalDetails';
+import Education from '../component/Education/Education';
 import Experience from '../component/Experience';
-import DisplayPersonalDetail from '../component/DisplayPeronalDetail';
-import  DisplayEducation from '../component/DisplayEducation';
+import DisplayPersonalDetail from './GeneralInfo/DisplayPeronalDetail';
+import  DisplayEducation from '../component/Education/DisplayEducation';
 
 function App() {
   const [person, setPerson] = useState({
@@ -14,16 +14,23 @@ function App() {
     address: "",
     about:""
   });
-
+  const defauleducation={
+    school: "Bahir Dar Institute of Technology",
+    level: " BSC ",
+    department: "Software Engineering",
+    start: '2014-10-16',
+    end: '2019-07-14',
+    location: "Bahir Dar, Ethiopia",
+  };
  const updatePerson = (updatedPerson) => {
     setPerson(updatedPerson);
   };
-
   const [educationData, setEducationData] = useState([]);
   const updateEducation = (data) => {
     setEducationData(data);
   };
 
+ 
   return (
     <>
       <div className="container">

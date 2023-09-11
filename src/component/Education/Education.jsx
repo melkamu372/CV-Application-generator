@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import Button from "./Button";
+import Button from "../Button";
 function Education({ updateEducation }) {
   const [formData, setFormData] = useState({
     school: "Bahir Dar Institute of Technology",
@@ -34,19 +34,8 @@ function Education({ updateEducation }) {
       location: "",
     });
   };
+  
   const AddNewEducation = () => {
-    if (formData.school.trim() === "") {
-      alert("Please enter a school name.");
-      return;
-    }
-    if (formData.level.trim() === "") {
-      alert("Please enter Education Level");
-      return;
-    }
-    if (formData.department.trim() === "") {
-      alert("Please enter department name.");
-      return;
-    }
     setEducationalInfo((prevData) => [...prevData, formData]);
     setFormData({
       school: "",
