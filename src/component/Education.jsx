@@ -1,53 +1,52 @@
-import {React, useState, useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import Button from "./Button";
-function Education() {
+function Education({ updateEducation }) {
   const [formData, setFormData] = useState({
-    school: "Bahir Dar INstitute of Technology",
-    level: "BSC",
+    school: "Bahir Dar Institute of Technology",
+    level: " BSC ",
     department: "Software Engineering",
-    start: "10/20/2014",
-    end: "07/13/2019",
-    location: "Bahir Dar,Ethiopia"
+    start: '2014-10-16',
+    end: '2019-07-14',
+    location: "Bahir Dar, Ethiopia",
   });
 
-  const [education, setEducationalInfo] = useState([])
-  // useEffect(() => {
-  //   updatEducation(education);
-  // }, [education, updatEducation]);
+  const [education, setEducationalInfo] = useState([]);
+ 
+  useEffect(() => {
+    updateEducation(education);
+  }, [education]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value
+      [name]: value,
     }));
   };
   const clear_form = (event) => {
     event.preventDefault();
     setFormData({
-    school: "",
-    level: "",
-    department: "",
-    start: "",
-    end: "",
-    location:""
+      school: "",
+      level: "",
+      department: "",
+      start: '2014-10-16',
+      end: '2019-07-14',
+      location: "",
     });
   };
-  const AddNewEducation=()=>{
-
-  
-      if (formData.school.trim() === "") {
-         alert("Please enter a school name.");
-           return;
-      }
-      if (formData.level.trim() === "") {
-        alert("Please enter Education Level");
-        return;
-      }
-      if (formData.department.trim() === "") {
-        alert("Please enter department name.");
-        return;
-      }
+  const AddNewEducation = () => {
+    if (formData.school.trim() === "") {
+      alert("Please enter a school name.");
+      return;
+    }
+    if (formData.level.trim() === "") {
+      alert("Please enter Education Level");
+      return;
+    }
+    if (formData.department.trim() === "") {
+      alert("Please enter department name.");
+      return;
+    }
     setEducationalInfo((prevData) => [...prevData, formData]);
     setFormData({
       school: "",
@@ -55,10 +54,10 @@ function Education() {
       department: "",
       start: "",
       end: "",
-      location:""
-      });
-    };
-    
+      location: "",
+    });
+  };
+
   const deleteEducation = (index) => {
     setEducationalInfo((prevData) => {
       const updatedData = [...prevData];
@@ -71,23 +70,46 @@ function Education() {
     <>
       <div className="container">
         <div className="mb-3">
-          <label className="form-label">School Name</label> 
-          <input type="text" name="school" className="form-control" onChange={handleInputChange} value={formData.school} />
+          <label className="form-label">School Name</label>
+          <input
+            type="text"
+            name="school"
+            className="form-control"
+            onChange={handleInputChange}
+            value={formData.school}
+          />
         </div>
 
         <div className="mb-3">
           <label className="form-label">Education Level</label>
-          <input type="text" name="level" className="form-control" onChange={handleInputChange} value={formData.level} />
+          <input
+            type="text"
+            name="level"
+            className="form-control"
+            onChange={handleInputChange}
+            value={formData.level}
+          />
         </div>
         <div className="mb-3">
           <label className="form-label">Department</label>
-          <input type="text" name="department" className="form-control" onChange={handleInputChange} value={formData.department} />
+          <input
+            type="text"
+            name="department"
+            className="form-control"
+            onChange={handleInputChange}
+            value={formData.department}
+          />
         </div>
 
         <div className="row">
           <div className="col">
-            <label className="form-label" >Start Date</label>
-            <input type="date"  className="form-control" name='start' onChange={handleInputChange} value={formData.start}
+            <label className="form-label">Start Date</label>
+            <input
+              type="date"
+              className="form-control"
+              name="start"
+              onChange={handleInputChange}
+              value={formData.start}
             />
           </div>
           <div className="col">
@@ -95,13 +117,22 @@ function Education() {
             <input
               type="date"
               className="form-control"
-              name="end"  onChange={handleInputChange} value={formData.end}/>
+              name="end"
+              onChange={handleInputChange}
+              value={formData.end}
+            />
           </div>
         </div>
 
         <div className="mb-3">
           <label className="form-label">Location</label>
-          <input type="text" name="location" className="form-control" onChange={handleInputChange} value={formData.location} />
+          <input
+            type="text"
+            name="location"
+            className="form-control"
+            onChange={handleInputChange}
+            value={formData.location}
+          />
         </div>
         <div className="row">
           <div className="col-md-4 offset-md-8 mr-auto">
@@ -110,7 +141,7 @@ function Education() {
               btnClass="btn btn-primary btn-sm  m-1"
               text="Add"
             />
-         
+
             <Button
               clickMe={clear_form}
               btnClass="btn btn-warning btn-sm  m-1"
@@ -119,50 +150,36 @@ function Education() {
           </div>
         </div>
         {education.length > 0 ? (
-        <table className="table table-primary table-bordered">
-          <thead>
-            <tr className="table-dark">
-              <th>School</th>
-              <th>Level</th>
-              <th>Departement</th>
-              <th> Action</th>
-            </tr>
-          </thead>
-          <tbody className="table-striped table-info ">
-            {education.map((edu, index) => (
-              <tr key={index}>
-                <td>{edu.school}</td>
-                <td>{edu.level}</td>
-                <td>{edu.department}</td>
-                <td> 
-                  <Button
-            clickMe={() => deleteEducation(index)}
-            btnClass="btn btn-danger btn-sm m-1"
-            text="Delete"
-          /> </td>
+          <table className="table table-primary table-bordered">
+            <thead>
+              <tr className="table-dark">
+                <th>School</th>
+                <th>Level</th>
+                <th>Departement</th>
+                <th> Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <p>No users registered yet.</p>
-      )}
-
-      <div> 
-      {education.length > 0 ? (
-           <div>
-            {education.map((edu, index) => (
-          <p> {edu.school} </p> 
-            ))
-            }
-            </div>
-
-      ):(<p></p>)}
-
+            </thead>
+            <tbody className="table-striped table-info ">
+              {education.map((edu, index) => (
+                <tr key={index}>
+                  <td>{edu.school}</td>
+                  <td>{edu.level}</td>
+                  <td>{edu.department}</td>
+                  <td>
+                    <Button
+                      clickMe={() => deleteEducation(index)}
+                      btnClass="btn btn-danger btn-sm m-1"
+                      text="Delete"
+                    />{" "}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p>No users registered yet.</p>
+        )}
       </div>
-      </div>
-
-      
     </>
   );
 }

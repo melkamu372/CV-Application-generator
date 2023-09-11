@@ -3,6 +3,7 @@ import PersonalDetails from '../component/PersonalDetails';
 import Education from '../component/Education';
 import Experience from '../component/Experience';
 import DisplayPersonalDetail from '../component/DisplayPeronalDetail';
+import  DisplayEducation from '../component/DisplayEducation';
 
 function App() {
   const [person, setPerson] = useState({
@@ -16,6 +17,11 @@ function App() {
 
  const updatePerson = (updatedPerson) => {
     setPerson(updatedPerson);
+  };
+
+  const [educationData, setEducationData] = useState([]);
+  const updateEducation = (data) => {
+    setEducationData(data);
   };
 
   return (
@@ -67,7 +73,7 @@ function App() {
                   data-bs-parent="#accordionExample"
                 >
                   <div className="accordion-body">
-                    <Education />
+                  <Education formData={educationData} updateEducation={updateEducation} />
                   </div>
                 </div>
               </div>
@@ -99,7 +105,9 @@ function App() {
           </div>
 
           <div className="col-md-6">
+
             <DisplayPersonalDetail person={person} />
+            <DisplayEducation education={educationData} />
           </div>
         </div>
       </div>
