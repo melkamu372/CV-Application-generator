@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import PersonalDetails from './GeneralInfo/PersonalDetails';
-import Education from '../component/Education/Education';
-import Experience from '../component/Experience';
-import DisplayPersonalDetail from './GeneralInfo/DisplayPeronalDetail';
-import  DisplayEducation from '../component/Education/DisplayEducation';
-
+import React, { useState } from 'react'
+import PersonalDetails from './GeneralInfo/PersonalDetails'
+import DisplayPersonalDetail from './GeneralInfo/DisplayPeronalDetail'
+import Education from '../component/Education/Education'
+import DisplayEducation from '../component/Education/DisplayEducation'
+import Experience from '../component/Experience/Experience'
+import DisplayExperience from './Experience/DisplayExperience'
 function App() {
   const [person, setPerson] = useState({
     fullname: "",
@@ -29,8 +29,12 @@ function App() {
   const updateEducation = (data) => {
     setEducationData(data);
   };
+  const [experience, setExperience] = useState([]);
+  const updateExperience = (data) => {
+    setExperience(data);
+  };
+  
 
- 
   return (
     <>
       <div className="container">
@@ -104,7 +108,7 @@ function App() {
                   data-bs-parent="#accordionExample"
                 >
                   <div className="accordion-body">
-                    <Experience />
+                    <Experience  updateExperience={updateExperience} />
                   </div>
                 </div>
               </div>
@@ -112,9 +116,11 @@ function App() {
           </div>
 
           <div className="col-md-6">
-
+             <div className='card'> 
             <DisplayPersonalDetail person={person} />
             <DisplayEducation education={educationData} />
+            <DisplayExperience experience={experience} />
+            </div>
           </div>
         </div>
       </div>
