@@ -11,6 +11,10 @@
 
 <div align="">
  <h1></h1>
+  
+![image](https://github.com/melkamu372/CV-Application-generator/assets/47281626/d3d3ae66-56ae-4fb2-b318-c7dc920b5296)
+
+  
 </div>
 # 📗 Table of Contents
 
@@ -23,7 +27,6 @@
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
-  - [Install](#install)
   - [Usage](#usage)
   - [Run tests](#run-tests)
   - [Deployment](#deployment)
