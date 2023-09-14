@@ -6,7 +6,8 @@
 
   <p align="">
 
-![Downloads](https://img.shields.io/github/downloads/melkamu372/CV-Application-generator/total) ![Contributors](https://img.shields.io/github/contributors/melkamu372/CV-Application-generator?color=dark-green) ![Forks](https://img.shields.io/github/forks/melkamu372/CV-Application-generator?style=social) ![Stargazers](https://img.shields.io/github/stars/melkamu372/CV-Application-generator?style=social) ![Issues](https://img.shields.io/github/issues/melkamu372/CV-Application-generator) 
+![Downloads](https://img.shields.io/github/downloads/melkamu372/CV-Application-generator/total) ![Contributors](https://img.shields.io/github/contributors/melkamu372/CV-Application-generator?color=dark-green) ![Forks](https://img.shields.io/github/forks/melkamu372/CV-Application-generator?style=social) ![Stargazers](https://img.shields.io/github/stars/melkamu372/CV-Application-generator?style=social) ![Issues](https://img.shields.io/github/issues/melkamu372/CV-Application-generator) <a href="https://melkamu372.github.io/CV-Application-generator/" target="_blank"><img src="https://img.shields.io/badge/Live%20Demo-blue" alt="live" />
+</a>
 
 <div align="">
  <h1></h1>
@@ -63,6 +64,7 @@
   <a href="https://www.w3schools.com/css/" target="_blank" style="text-decoration: none; margin: 10px;">
     <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/css-icon.svg" alt="CSS3" width="55" height="55" style="border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: transform 0.3s;">
   </a>
+ 
 </div>
 
 ### Key Features <a name="key-features"></a>
