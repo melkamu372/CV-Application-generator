@@ -46,7 +46,25 @@
 
 ### Tech Stack <a name="tech-stack"></a>
 
-<div style="display: flex;"> <a href="https://www.w3.org/html/" target="_blank" style="text-decoration: none; margin: 10px;"> <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/html-icon.svg" alt="HTML5" width="55" height="55" style="border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: transform 0.3s;"> <p style="text-align: center; margin: 5px 0 0; font-size: 14px; font-weight: bold;">HTML5</p> </a> <a href="https://www.w3schools.com/css/" target="_blank" style="text-decoration: none; margin: 10px;"> <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/css-icon.svg" alt="CSS3" width="55" height="55" style="border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: transform 0.3s;"> <p style="text-align: center; margin: 5px 0 0; font-size: 14px; font-weight: bold;">CSS3</p> </a> <a href="https://reactjs.org/" target="_blank" style="text-decoration: none; margin: 10px;"> <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/react-js-icon.svg" alt="React JS" width="55" height="55" style="border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: transform 0.3s;"> <p style="text-align: center; margin: 5px 0 0; font-size: 14px; font-weight: bold;">React JS</p> </a> <a href="https://getbootstrap.com/" target="_blank" style="text-decoration: none; margin: 10px;"> <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/bootstrap-4-icon.png" alt="Bootstrap" width="55" height="55" style="border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: transform 0.3s;"> <p style="text-align: center; margin: 5px 0 0; font-size: 14px; font-weight: bold;">Bootstrap</p> </a> </div>
+
+<div style="display: flex; flex-wrap: wrap;">
+    <a href="https://reactjs.org/" target="_blank" style="text-decoration: none; margin: 10px;">
+    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/react-js-icon.svg" alt="React JS" width="55" height="55" style="border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: transform 0.3s;">
+  </a>
+
+  <a href="https://getbootstrap.com/" target="_blank" style="text-decoration: none; margin: 10px;">
+    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/bootstrap-4-icon.png" alt="Bootstrap" width="55" height="55" style="border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: transform 0.3s;">
+  </a>
+  
+  <a href="https://www.w3.org/html/" target="_blank" style="text-decoration: none; margin: 10px;">
+    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/html-icon.svg" alt="HTML5" width="55" height="55" style="border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: transform 0.3s;">
+  </a>
+
+  <a href="https://www.w3schools.com/css/" target="_blank" style="text-decoration: none; margin: 10px;">
+    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/css-icon.svg" alt="CSS3" width="55" height="55" style="border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: transform 0.3s;">
+  </a>
+</div>
+
 ### Key Features <a name="key-features"></a>
 - **General information**
 - **Educational experience**
