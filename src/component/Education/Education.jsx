@@ -127,13 +127,13 @@ function Education({ updateEducation }) {
           <div className="col-md-4 offset-md-8 mr-auto">
             <Button
               clickMe={AddNewEducation}
-              btnClass="btn btn-primary btn-sm  m-1"
+              btnClass="bi bi-check-square btn btn-primary btn-sm  m-1"
               text="Add"
             />
 
             <Button
               clickMe={clear_form}
-              btnClass="btn btn-warning btn-sm  m-1"
+              btnClass="bi bi-trash btn btn-danger btn-sm  m-1"
               text="Clear"
             />
           </div>

@@ -129,13 +129,13 @@ function Experience({ updateExperience }) {
           <div className="col-md-4 offset-md-8 mr-auto">
             <Button
               clickMe={AddExperience}
-              btnClass="btn btn-primary btn-sm  m-1"
+              btnClass="bi bi-check-square btn btn-success btn-sm  m-1"
               text="Add"
             />
 
             <Button
               clickMe={clear_form}
-              btnClass="btn btn-warning btn-sm  m-1"
+              btnClass="btn btn-danger bi bi-trash m-1"
               text="Clear"
             />
           </div>

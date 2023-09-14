@@ -114,7 +114,7 @@ function PersonalDetails({updatePerson}) {
 
                   <Button
                     clickMe={clear_form}
-                    btnClass="btn btn-danger btn-lg p-2 m-1"
+                    btnClass="bi bi-trash btn btn-danger btn-lg p-2 m-1"
                     text="Clear"
                   />
                 </form>
