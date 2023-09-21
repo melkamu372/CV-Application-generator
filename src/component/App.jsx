@@ -33,7 +33,7 @@ function App() {
     document.body.innerHTML = originalContents
   }
   const LoadDefault=()=>{
-    props.LoadDefault;
+    setPersonalInfo({ ...defaultPerson });
     setEducationData([defauleducation]);
     setExperience([defaulExperience]);
   }
@@ -47,17 +47,13 @@ function App() {
       <div className="container">
       <div className="row">
         <div className="col-6"> 
-        <Button clickMe={LoadDefault} btnClass="bi bi-box-arrow-down btn btn-success btn-sm p-2 m-1 fs-6"
-              text="Load Default"/>
-              <Button clickMe={cleanDefault} btnClass="bi bi-trash btn btn-primary btn-sm p-2 m-1 fs-6"
-              text=" Clear "/>
         </div>
         <div className="col-6"> 
         <Button clickMe={Print_cv} btnClass="bi bi-printer btn btn-dark fs-6 p-2"
               text=" Print "/>
         </div>
         </div>
-    
+
         <div className="row">
           <div className="col-md-6">
             <div className="accordion" id="accordionExample">
@@ -70,7 +66,7 @@ function App() {
                     aria-expanded="true"
                     aria-controls="collapseOne"
                   >
-                    <span className="badge text-bg-info fs-5"> Personal Information</span>
+                    <span className="badge text-bg-dark fs-5"> Personal Information</span>
                     
                   </button>
                 </h2>
@@ -88,6 +84,12 @@ function App() {
               </div>
             </div>
 
+            <div className="col-6"> 
+             <Button clickMe={LoadDefault} btnClass="bi bi-arrow-down-circle-fill btn btn-success btn-sm p-2 m-1 fs-6"
+              text="Load Default"/>
+              <Button clickMe={cleanDefault} btnClass="bi bi-trash btn btn-danger btn-sm p-2 m-1 fs-6"
+              text=" Clear "/>
+        </div>
             <div className="accordion" id="accordionExample">
               <div className="accordion-item">
                 <h2 className="accordion-header">
@@ -100,7 +102,7 @@ function App() {
                     aria-controls="collapseTwo"
                   >
                     
-                    <span className="badge text-bg-success fs-5">Educational Experience</span>
+                    <span className="badge text-bg-dark fs-5">Educational Experience</span>
                   </button>
                 </h2>
                 <div

@@ -105,8 +105,8 @@ function PersonalDetails({updatePerson}) {
 
                   <Button
                     clickMe={LoadDefault}
-                    btnClass="bi bi-trash btn btn-success btn-lg p-2 m-1"
-                    text="Load default"
+                    btnClass="bi bi-arrow-down-circle-fill btn btn-primary btn-lg p-2 m-1"
+                    text="Default"
                   />
                   <Button
                     clickMe={clear_form}
