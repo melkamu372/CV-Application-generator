@@ -5,40 +5,22 @@ import Education from "../component/Education/Education";
 import DisplayEducation from "../component/Education/DisplayEducation";
 import Experience from "../component/Experience/Experience";
 import DisplayExperience from "./Experience/DisplayExperience"
+import defaultPerson from '../data/defaultPerson.json'
+import defauleducation from '../data/defauleducation.json'
+import defaulExperience from '../data/defaulExperience.json'
+import emptyPerson from '../data/emptyPerson.json'
 import Button from "./Button";
+
 function App() {
-  const [person, setPerson] = useState({
-    fullname: "",
-    title: "",
-    tel: "",
-    email: "",
-    address: "",
-    about: "",
-  });
-  const defauleducation = {
-    school: "Bahir Dar Institute of Technology",
-    level: " BSC ",
-    department: "Software Engineering",
-    start: "2014-10-16",
-    end: "2019-07-14",
-    location: "Bahir Dar, Ethiopia",
-  };
-  const defaulExperience= {
-    company: "Leapfrog Technology",
-    position: " Full Stack Developer  ",
-    responsibility: "Design,Builld,implement and Test Ezi bus Application ",
-    start: '2014-10-16',
-    end: '2019-07-14',
-    location: "Addis Ababa, Ethiopia",
-  };
+  const [person, setPersonalInfo] = useState(emptyPerson);
   const updatePerson = (updatedPerson) => {
-    setPerson(updatedPerson);
+    setPersonalInfo(updatedPerson);
   };
-  const [educationData, setEducationData] = useState([]);
+  const [educationData, setEducationData] = useState([defauleducation]);
   const updateEducation = (data) => {
     setEducationData(data);
   };
-  const [experience, setExperience] = useState([]);
+  const [experience, setExperience] = useState([defaulExperience]);
   const updateExperience = (data) => {
     setExperience(data);
   }
@@ -50,14 +32,15 @@ function App() {
     window.print();
     document.body.innerHTML = originalContents
   }
-
-  function LoadDefault(){
+  const LoadDefault=()=>{
+    props.LoadDefault;
     setEducationData([defauleducation]);
     setExperience([defaulExperience]);
   }
-  function cleanDefault(){
+ const cleanDefault=()=>{
     setEducationData([]);
     setExperience([]);
+    setPersonalInfo({ ...emptyPerson });
   }
   return (
     <>
@@ -98,7 +81,8 @@ function App() {
                   <div className="accordion-body">
                   <PersonalDetails
                       person={person}
-                      updatePerson={updatePerson}/>
+                      updatePerson={updatePerson}
+                      LoadDefault={LoadDefault}/>
                   </div>
                 </div>
               </div>

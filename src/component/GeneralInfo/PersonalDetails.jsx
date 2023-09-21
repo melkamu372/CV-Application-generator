@@ -1,20 +1,19 @@
 import { useState, useEffect} from "react";
 import Button from "../Button";
-function PersonalDetails({updatePerson}) {
-  const [person, setPersonalInfo] = useState({
-    fullname: "Melkamu Tessema",
-    title: "Software Engineering",
-    tel: "+251945272182",
-    email: "melkamu372@gmial.com",
-    address: "Addis Ababa, Ethiopia",
-    about: "Hello I'm a self-motivated software developer who has a track record of working well in a team. I am good developer for the development of new software products and enhancements to existing products. I have exceptional leadership and communication abilities and work with large-scale frameworks and applications."
-  });
-
-  useEffect(() => {
+import defaultPerson from '../../data/defaultPerson.json'
+import emptyPerson from '../../data/emptyPerson.json'
+function PersonalDetails({updatePerson,LoadDefault}) {
+  const [person, setPersonalInfo] = useState(defaultPerson);
+   useEffect(() => {
     updatePerson(person);
-  }, [person, updatePerson]);
+    }, [person, updatePerson]);
 
-  const handleInputChange = (event) => {
+    const LoadDefault=(event)=>{
+      event.preventDefault();
+      setPersonalInfo(defaultPerson);
+    }
+
+   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setPersonalInfo((prevPerson) => ({
       ...prevPerson,
@@ -23,16 +22,8 @@ function PersonalDetails({updatePerson}) {
   };
   const clear_form = (event) => {
     event.preventDefault();
-    setPersonalInfo({
-      fullname: "",
-      title: "",
-      tel: "",
-      email: "",
-      address: "",
-      about:""
-    });
+    setPersonalInfo(emptyPerson);
   };
-
   return (
     <>
       <div className="container">
@@ -112,6 +103,11 @@ function PersonalDetails({updatePerson}) {
                     />
                   </div>
 
+                  <Button
+                    clickMe={LoadDefault}
+                    btnClass="bi bi-trash btn btn-success btn-lg p-2 m-1"
+                    text="Load default"
+                  />
                   <Button
                     clickMe={clear_form}
                     btnClass="bi bi-trash btn btn-danger btn-lg p-2 m-1"

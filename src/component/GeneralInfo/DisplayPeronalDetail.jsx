@@ -5,11 +5,11 @@ return (<>
               <h1>{person.fullname}</h1>
               <p className="fs-3 text-decoration-underline">{person.title}</p>
               <p className="p-2" >
-              <i className="p-2 bi bi-telephone"> {person.tel}  </i>
-              <i className="p-2 bi bi-envelope">  {person.email}  </i>
-              <i className="p-2 bi bi-geo-alt">  {person.address}  </i>
+              {person.tel ?(<i className="p-2 bi bi-telephone"> {person.tel}  </i>) :'' }
+              {person.email ?(<i className="p-2 bi bi-envelope">  {person.email}  </i>):''}
+              {person.address ?(<i className="p-2 bi bi-geo-alt">  {person.address}  </i>):''} 
                </p>
-               <p className="p-2">   {person.about}  </p>
+               <p className="p-2"> {person.about}  </p>
               </div>
             </div>
       </>)
