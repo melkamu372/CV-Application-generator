@@ -1,16 +1,11 @@
 import { React, useState, useEffect } from "react";
 import Button from "../Button";
+import emptyEducation from '../../data/emptyEducation.json'
+import defaulEducation from '../../data/defauleducation.json'
 function Education({ updateEducation }) {
-  const [formData, setFormData] = useState({
-    school: "Bahir Dar Institute of Technology",
-    level: " BSC ",
-    department: "Software Engineering",
-    start: '2014-10-16',
-    end: '2019-07-14',
-    location: "Bahir Dar, Ethiopia",
-  });
+  const [formData, setFormData] = useState(emptyEducation);
 
-  const [education, setEducationalInfo] = useState([]);
+  const [education, setEducationalInfo] = useState([defaulEducation]);
  
   useEffect(() => {
     updateEducation(education);

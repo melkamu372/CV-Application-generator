@@ -1,50 +1,30 @@
 import { React, useState, useEffect } from "react";
 import Button from "../Button";
+import defaulExperience from '../../data/defaulExperience.json'
+import emptyExperience from '../../data/emptyExperience.json'
 function Experience({ updateExperience }) {
-  const [formData, setFormData] = useState({
-    company: "Leapfrog Technology",
-    position: " Full Stack Developer  ",
-    responsibility: "Design,Builld,implement and Test Ezi bus Application ",
-    start: '2014-10-16',
-    end: '2019-07-14',
-    location: "Addis Ababa, Ethiopia",
-  });
-
-  const [experience, setExperienceInfo] = useState([]);
- 
+  const [formData, setFormData] = useState(defaulExperience);
+  const [experience, setExperienceInfo] = useState([defaulExperience]);
   useEffect(() => {
     updateExperience(experience);
   }, [experience]);
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
+  const { name, value } = event.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
   };
+  
   const clear_form = (event) => {
     event.preventDefault();
-    setFormData({
-      company: "",
-      position: "",
-      responsibility: " ",
-      start: '',
-      end: '',
-      location: "",
-    });
+    setFormData(emptyExperience);
   };
   
   const AddExperience = () => {
     setExperienceInfo((prevData) => [...prevData, formData]);
-    setFormData({
-      company: "",
-      position: "",
-      responsibility: " ",
-      start: '',
-      end: '',
-      location: "",
-    });
+    setFormData(emptyExperience);
   };
 
   const deleteExperience = (index) => {
