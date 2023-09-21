@@ -2,7 +2,7 @@ import { useState, useEffect} from "react";
 import Button from "../Button";
 import defaultPerson from '../../data/defaultPerson.json'
 import emptyPerson from '../../data/emptyPerson.json'
-function PersonalDetails({updatePerson,LoadDefault}) {
+function PersonalDetails({updatePerson}) {
   const [person, setPersonalInfo] = useState(defaultPerson);
    useEffect(() => {
     updatePerson(person);
